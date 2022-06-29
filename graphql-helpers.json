@@ -1,0 +1,95 @@
+//Create or store
+mutation {
+  addClient(name: "Tony Stark", email: "ironman@gmail.com", phone: "343-567-4333"){
+    id
+    name
+    email
+    phone
+  }
+}
+
+mutation {
+  addProject(
+    name: "SEO Project", 
+    description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.", 
+    status: progress,
+    clientId: "62bbaa9a7148ff33cda94727"
+  ){
+    id
+    name
+    description
+    status
+    client{
+      name
+    }
+  }
+}
+
+//Delete
+mutation{
+  deleteClient(id: "62bbab37b4208f29005860d6"){
+    name
+  }
+}
+
+//Fetch
+query{
+  clients{
+    id
+    name
+    email
+    phone
+  }
+}
+
+//Or Fetch like this
+{
+  clients{
+    id
+    name
+    email
+    phone
+  }
+}
+
+query {
+  project(id: "62bbafb7ca28cd0062f19a9c"){
+    id
+    name
+    description
+    status
+    client{
+      name
+    }
+  }
+}
+
+{
+  projects{
+    id
+    name
+    description
+    status
+    client{
+      name
+    }
+  }
+}
+
+
+//To Update 
+
+
+mutation{
+  updateProject(
+    id: "62bbaf82ca28cd0062f19a99",
+    status: progress
+    clientId: "62bbaa837148ff33cda94725",
+  ){
+    name,
+    client{
+      id
+      name
+    }
+  }
+}

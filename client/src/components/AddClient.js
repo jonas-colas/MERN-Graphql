@@ -23,7 +23,6 @@ const AddClient = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(name);
     if(name === '' || email === '' || phone === '') {
       return alert('Please fill in all fields');
     }
@@ -85,7 +84,7 @@ const AddClient = () => {
                     value={phone} onChange={e => setPhone(e.target.value)}
                   />
                 </div>
-                <button type="submit" className="btn btn-secondary" 
+                <button type="submit" className="btn btn-secondary" style={{float: 'right'}} 
                   data-bs-dismiss="modal"
                 >
                   Submit

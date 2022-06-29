@@ -32,7 +32,6 @@ const AddClient = () => {
     if(name === '' || description === '' || status === '' || clientId === '') {
       return alert('Please fill in all fields');
     }
-    // console.log(name, description, status, clientId)
     addProject(name, description, status, clientId);
     setName('');
     setDescription('');

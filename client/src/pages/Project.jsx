@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { GET_ONE_PROJECT } from '../queries/projectQueries';
 import Spinner from '../components/Spinner';
 import ClientInfo from '../components/ClientInfo';
+import DeleteProject from '../components/DeleteProject';
 
 
 const Project = () => {
@@ -29,6 +30,7 @@ const Project = () => {
           <p className="lead">{data.project.status}</p>
 
           <ClientInfo client={data.project.client} />
+          <DeleteProject projectId={data.project.id} />
         </div>
       }
     </>

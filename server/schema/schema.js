@@ -99,6 +99,11 @@ const mutateDB = new GraphQLObjectType({
       type: ClientType,
       args: { id : { type: GraphQLNonNull(GraphQLID) }},
       resolve(parent, args) {
+        Project.find({ clientId: args.id }).then(projects => {
+          projects.forEach(project => {
+            project.remove();
+          });
+        });
         return Client.findByIdAndRemove(args.id);
       }
     },
@@ -146,7 +151,7 @@ const mutateDB = new GraphQLObjectType({
           }), 
           defaultValue: 'Not Started',
         },
-        clientId: { type: GraphQLID },
+        // clientId: { type: GraphQLID },
       },
       resolve(parent, args) {
         return Project.findByIdAndUpdate(
@@ -156,7 +161,7 @@ const mutateDB = new GraphQLObjectType({
               name: args.name,
               description: args.description,
               status: args.status,
-              clientId: args.clientId
+              // clientId: args.clientId
             },
           }, { new: true }
         );

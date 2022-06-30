@@ -4,6 +4,7 @@ import { GET_ONE_PROJECT } from '../queries/projectQueries';
 import Spinner from '../components/Spinner';
 import ClientInfo from '../components/ClientInfo';
 import DeleteProject from '../components/DeleteProject';
+import EditProject from '../components/EditProject';
 
 
 const Project = () => {
@@ -30,6 +31,7 @@ const Project = () => {
           <p className="lead">{data.project.status}</p>
 
           <ClientInfo client={data.project.client} />
+          <EditProject project={data.project} />
           <DeleteProject projectId={data.project.id} />
         </div>
       }
